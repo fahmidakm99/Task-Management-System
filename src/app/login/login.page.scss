@@ -1,0 +1,117 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.app-logo {
+  width: 100px;
+  height: auto;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: center;
+  color: var(--white);
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Card Styling */
+.login-card {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* OR Divider */
+.or-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #666;
+  position: relative;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ccc;
+  margin: 0 10px;
+}
+
+/* Continue Button */
+.continue-button {
+  margin-top: 20px;
+  --border-radius: 10px;
+  border-radius: 10px !important;
+  --background: var(--primary-color);
+  overflow: hidden;
+}
+
+/* Google Sign-In Button */
+.google-button {
+  margin-top: 10px;
+  --border-radius: 10px;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+/* Alternative: Directly Target Ionic's Inner Element */
+ion-button::part(native) {
+  border-radius: 10px !important;
+}
+
+/* Email Input */
+.email-box {
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.email-item {
+  width: 110%;
+  right: 13px;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.custom-login-button {
+  --background: var(--primary-color);
+  --color: var(--white);
+
+}
+.login-alert .alert-wrapper {
+  border-radius: 12px;
+  background: #fff;
+  color: #333;
+}
+.login-alert .alert-title {
+  font-weight: bold;
+  color: #d9534f;
+}
+.login-alert .alert-button {
+  color: #3880ff;
+}

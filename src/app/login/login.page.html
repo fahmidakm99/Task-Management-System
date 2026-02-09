@@ -1,0 +1,35 @@
+<ion-content class="ion-padding login-container">
+ 
+  <!-- App Name -->
+  <h1 class="app-title">Task Management App</h1>
+  <p class="subtitle">Let's get started!</p>
+
+  <!-- Login Form -->
+  <ion-card class="login-card">
+    <ion-card-content>
+      <form (ngSubmit)="login()">
+        <!-- Email Input -->
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="email" type="email" name="email" required></ion-input>
+        </ion-item>
+
+        <!-- Password Input -->
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [(ngModel)]="password" type="password" name="password" required></ion-input>
+        </ion-item>
+
+        <!-- Login Button -->
+        <!-- <ion-button class="custom-login-button" expand="full" type="submit">Login</ion-button> -->
+        <ion-button class="custom-login-button" expand="full" type="submit" [disabled]="isLoading">
+          <ion-spinner name="crescent" *ngIf="isLoading"></ion-spinner>
+          <span *ngIf="!isLoading">Login</span>
+        </ion-button>
+        
+        <p>Don't have an account? <a routerLink="/register">Register</a></p>
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
