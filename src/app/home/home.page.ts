@@ -73,9 +73,16 @@ pendingTasks: { name: string; category: string }[] = [];
   }
   
 
-  openAddCategoryDialog() {
-    this.isModalOpen = true;
-  }
+openAddCategoryDialog() {
+  this.isModalOpen = true;
+  this.cdr.detectChanges(); // <- ensures modal is displayed immediately
+}
+
+openAddTaskDialog() {
+  this.isTaskModalOpen = true;
+  this.cdr.detectChanges(); // <- ensures modal is displayed immediately
+}
+
 
   closeModal() {
     this.isModalOpen = false;
@@ -123,9 +130,6 @@ pendingTasks: { name: string; category: string }[] = [];
   }
   
 
-  openAddTaskDialog() {
-    this.isTaskModalOpen = true;
-  }
 
   closeTaskModal() {
     this.isTaskModalOpen = false;

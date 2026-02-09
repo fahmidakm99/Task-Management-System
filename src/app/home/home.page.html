@@ -4,119 +4,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Centered Logo</title>
+  <title>Task Management App</title>
 </head>
 
 <body>
+  <!-- Top Rectangle -->
   <div class="top-rectangle">
-    <h2 class="app-name">Task Manangement App</h2>
+    <h2 class="app-name">Task Management App</h2>
     <h4 class="app-tag">Weave Your Productivity, One Task at a Time</h4>
   </div>
+
+  <!-- Bottom Rectangle -->
   <div class="bottom-rectangle">
-    <!-- <div class="add-categories-btn">
-        <p (click)="openAddCategoryDialog()">
-          Add Category
-        </p>
-      </div> -->
 
-    <!-- Add Category Modal (Hidden by Default) -->
-    <div id="addCategoryModal" class="modal" [ngClass]="{ show: isModalOpen }">
-      <div class="modal-content">
-        <span class="close" (click)="closeModal()">&times;</span>
-        <h2 class="category-title">Add Category</h2>
-        <input type="text" [(ngModel)]="categoryName" class="full-width" placeholder="Enter category name" />
-        <div class="modal-buttons">
-          <button class="saveBtn" (click)="saveCategory()">Save</button>
-          <button class="closeBtn" (click)="closeModal()">Cancel</button>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Bottom Rectangle (Buttons) -->
+    <!-- Sidebar: Categories and Pending Tasks -->
     <div class="button-rectangle">
       <ul>
-       
-          <div class="pending-tasks-btn">
-            <button class="btn pending-task-btn" (click)="showPendingTasks()">PENDING TASKS</button>
-          </div>
-        
+        <div class="pending-tasks-btn">
+          <button class="btn pending-task-btn" (click)="showPendingTasks()">PENDING TASKS</button>
+        </div>
 
-        <!-- Display dynamically added categories -->
+        <!-- Dynamically added categories -->
         <li *ngFor="let category of categories" class="category-item">
           <div class="category-container">
             <button class="cat-button" (click)="showCategories(category)">
               {{ category | uppercase }}
             </button>
-            <!-- Delete Button for each category -->
-            <button class="cat-delete-btn" (click)="deleteCategory(category)">
-              🗑️
-            </button>
+            <button class="cat-delete-btn" (click)="deleteCategory(category)">🗑️</button>
           </div>
         </li>
       </ul>
-
     </div>
 
+    <!-- Right Rectangle: Tasks & Modals -->
     <div class="right-rectangle">
 
-      <!-- Add Task Modal (Hidden by Default) -->
+      <!-- Add Category Modal -->
+      <div id="addCategoryModal" class="modal" [ngClass]="{ show: isModalOpen }">
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <h2 class="category-title">Add Category</h2><br>
+          <input type="text" [(ngModel)]="categoryName" class="task-text" placeholder="Enter category name" />
+          <div class="modal-buttons">
+            <button class="saveBtn" (click)="saveCategory()">Save</button>
+            <button class="closeBtn" (click)="closeModal()">Cancel</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- Add Task Modal -->
       <div id="addTaskModal" class="modal" [ngClass]="{ show: isTaskModalOpen }">
         <div class="modal-content">
           <span class="close" (click)="closeTaskModal()">&times;</span>
-          <h2 class="category-title">Add Task</h2>
-          <input type="text" [(ngModel)]="taskName" class="full-width" placeholder="Enter Task name" />
-          <br>
-          <!-- Category Selection Dropdown -->
+          <h2 class="category-title">Add Task</h2><br>
+          <input type="text" [(ngModel)]="taskName" class="task-text" placeholder="Enter Task name" /><br>
+          <br />
           <select [(ngModel)]="selectedCategory" class="select-width">
             <option value="" disabled selected>Select Category</option>
             <option *ngFor="let category of categories" [value]="category">
               {{ category | uppercase }}
             </option>
           </select>
-
           <div class="modal-buttons">
             <button class="saveBtn" (click)="saveTask()">Save</button>
-            <button class="closeBtn" (click)="closeTaskModal()">
-              Cancel
-            </button>
+            <button class="closeBtn" (click)="closeTaskModal()">Cancel</button>
           </div>
         </div>
       </div>
 
+      <!-- Top Controls: Add Category & Task Buttons -->
       <div class="tasks">
-        <div *ngIf="showingPendingTasks">
-          <div class="right-top-controls">
-            <div class="pending-task-heading">PENDING TASKS</div>
-
-            <div class="top-action-buttons">
-              <button class="add-category-btn" (click)="openAddCategoryDialog()">
-                Add Category
-              </button>
-
-              <button class="add-task-btn" (click)="openAddTaskDialog()">
-                Add Task
-              </button>
-            </div>
-          </div>
-
-          <div class="task-box">
-            <div class="task-card" *ngFor="let task of pendingTasks">
-              <p class="task-details">{{ task.category }} : {{ task.name }}</p>
-            </div>
+        <div class="right-top-controls">
+          <div class="pending-task-heading" *ngIf="showingPendingTasks">PENDING TASKS</div>
+          <div class="pending-task-heading" *ngIf="!showingPendingTasks"> </div>
+          <div class="top-action-buttons">
+            <button class="add-category-btn" (click)="openAddCategoryDialog()">Add Category</button>
+            <button class="add-task-btn" (click)="openAddTaskDialog()">Add Task</button>
           </div>
         </div>
+
+        <!-- Pending Tasks List -->
+        <div class="task-box" *ngIf="showingPendingTasks">
+          <div class="task-card" *ngFor="let task of pendingTasks">
+            <p class="task-details">{{ task.category }} : {{ task.name }}</p>
+          </div>
+        </div>
+
+        <!-- Tasks by Category -->
         <div *ngIf="selectedCategory">
           <h3>{{ selectedCategory | uppercase }}</h3>
-
           <div class="task-box">
             <div class="task-card" *ngFor="let task of tasks[selectedCategory]; let i = index"
-              (touchstart)="onTouchStart($event, i)" (touchmove)="onTouchMove($event, i)" (touchend)="onTouchEnd(i)"
-              [class.swiped]="swipedIndex === i">
+              (touchstart)="onTouchStart($event, i)" (touchmove)="onTouchMove($event, i)"
+              (touchend)="onTouchEnd(i)" [class.swiped]="swipedIndex === i">
+
               <div class="task-content">
                 <p class="task-details">{{ task }}</p>
-                
               </div>
 
               <div class="task-actions">
@@ -124,16 +107,13 @@
                   (click)="markAsCompleted(selectedCategory, i)">
                   {{ completedTasks[selectedCategory]?.[i] ? 'Completed' : 'Complete' }}
                 </button>
-                <button (click)="resetTask(selectedCategory, i)" class="reset-btn">
-                  🔄
-                </button>
-                <button (click)="deleteTask(selectedCategory, i)" class="delete-btn">
-                  🗑️
-                </button>
+                <button (click)="resetTask(selectedCategory, i)" class="reset-btn">🔄</button>
+                <button (click)="deleteTask(selectedCategory, i)" class="delete-btn">🗑️</button>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>

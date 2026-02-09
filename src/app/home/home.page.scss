@@ -1,307 +1,357 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
 }
 
 /* Top Rectangle */
 .top-rectangle {
-    background-color: #003366;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
 }
 
 .app-name {
-    font-size: 2.5em;
-    margin-bottom: 0.2em;
+  font-size: 2.5em;
+  margin-bottom: 0.2em;
 }
 
 .app-tag {
-    font-size: 1.2em;
-    font-style: italic;
+  font-size: 1.2em;
+  font-style: italic;
 }
 
 /* Bottom Rectangle */
 .bottom-rectangle {
-    display: flex;
-    padding: 20px;
+  display: flex;
+  padding: 20px;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 250px;
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  width: 250px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .add-categories-btn p {
-    text-align: center;
-    background-color: #00509e;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
+  text-align: center;
+  background-color: #00509e;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .add-categories-btn p:hover {
-    background-color: #003366;
+  background-color: #003366;
 }
 
 /* Category Buttons Below Add Category */
 .category-list {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column; /* stack vertically */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* stack vertically */
 }
 
 .category-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .cat-button {
-    background-color: #e7e7e7;
-    color: #333;
-    width: 150px; /* fixed width */
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
+  background-color: #e7e7e7;
+  color: #333;
+  width: 150px; /* fixed width */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .cat-button:hover {
-    background-color: #d1d1d1;
+  background-color: #d1d1d1;
 }
 
 .cat-delete-btn {
-    background-color: transparent; /* no bg */
-    color: #ff4d4d; /* red */
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
+  background-color: transparent; /* no bg */
+  color: #ff4d4d; /* red */
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
 }
 
 /* Right Rectangle */
 .right-rectangle {
-    flex: 1;
-    margin-left: 20px;
+  flex: 1;
+  margin-left: 20px;
 }
 
 /* Container for heading + Add Task button */
 .right-top-controls {
-    display: flex;
-    justify-content: space-between; /* Heading left, button right */
-    align-items: center; /* Vertical alignment */
-    margin-bottom: 20px;
-    
+  display: flex;
+  justify-content: space-between; /* Heading left, buttons right */
+  align-items: center; /* Vertical alignment */
+  margin-bottom: 20px;
+  gap: 20px;                 /* Space between heading and buttons */
 }
-
+.top-action-buttons {
+  display: flex;
+  gap: 10px;                 /* Space between buttons */
+}
 /* Heading style */
 .pending-task-heading {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #003366;
-    
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #003366;
 }
 
-/* Add Task Button */
-.add-task-btn {
-    color: #003366; /* dark blue text */
-    border: 1px solid #003366;
-    background-color: transparent;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.add-category-btn {
-    color: #003366;               /* same as Add Task */
-    border: 1px solid #003366;
-    background-color: transparent;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.add-category-btn:hover {
-    background-color: #003366;
-    color: white;
-}
-
-
-
+/* Buttons */
+.add-task-btn,
+.add-category-btn,
 .pending-task-btn {
-    color: #003366; /* dark blue text */
-    border: 1px solid #003366; /* only border */
-    background-color: transparent;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    width: 150px;
-    padding: 10px;
+  color: #003366;
+  border: 1px solid #003366;
+  background-color: transparent;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+.pending-task-btn{
     margin-bottom: 20px;
 }
-
 .add-task-btn:hover,
+.add-category-btn:hover,
 .pending-task-btn:hover {
-    background-color: #003366;
-    color: white;
+  background-color: #003366;
+  color: white;
 }
 
 /* Modal Styles */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  justify-content: center; /* Center modal horizontally */
+  align-items: center;    /* Center modal vertically */
 }
 
+.modal.show {
+  display: flex; /* Show modal */
+}
+
+/* Modal Content Box */
 .modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 5px;
-    width: 30%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;         /* Responsive width */
+  max-width: 400px;   /* Max width on large screens */
+  position: relative; /* For close button positioning */
+  box-shadow: 0 4px 12px rgba(244, 241, 241, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #e71313;
+  cursor: pointer;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.close:hover {
+  color: rgb(184, 0, 0);
+}
+.saveBtn {
+  background-color: #003366;
+  color: white;
+}
+
+.saveBtn:hover {
+  background-color: #00509e;
+}
+
+.closeBtn {
+  background-color: #e7e7e7;
+  color: #f52929;
+}
+
+.closeBtn:hover {
+  background-color: #d1d1d1;
+}
+.select-width option[disabled] {
+  color: #0a0000;
+  font-style: italic;
+}
+/* Full-width Input Field */
+.task-text, .select-width {
+  width: 100%;               /* Take full container width */
+  padding: 10px 12px;        /* Comfortable padding */
+  border: 1px solid #ccc;    /* Light gray border */
+  border-radius: 5px;        /* Rounded corners */
+  font-size: 1em;            /* Readable font */
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #ccc;
+  outline: none;             /* Remove default outline */
+  box-sizing: border-box;    /* Ensure padding doesn't overflow */
+}
+
+/* Focus Effect */
+.task-text:focus, .select-width:focus {
+  border-color: #003366;      /* Dark blue border on focus */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Subtle glow */
+}
+
+/* Placeholder Styling */
+.task-text::placeholder, .select-width::placeholder {
+  color: #aaa;                /* Gray placeholder */
+  font-style: italic;
 }
 
 /* Task Box Styles */
 .task-box {
-    margin-top: 20px;
+  margin-top: 20px;
 }
-.task-content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+
 .task-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-
-    transition: box-shadow 0.3s, transform 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  transition: box-shadow 0.3s, transform 0.2s;
 }
 
 .task-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
 }
 
-
-// .task-card {
-//     background-color: #ffffff;
-//     border: 1px solid #ddd;
-//     border-radius: 5px;
-//     padding: 15px;
-//     margin-bottom: 10px;
-//     transition: box-shadow 0.3s;
-// }
-
-// .task-card:hover {
-//     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-// }
-
-.task-details {
-    font-size: 1.1em;
-    margin-bottom: 10px;
+.task-content {
+  font-size: 1.1em;
+  flex: 1;
 }
+
 .task-actions {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
+
 .completed-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
 }
 
 .completed {
-    background-color: #6c757d;
+  background-color: #6c757d;
 }
+
 .reset-btn,
 .delete-btn {
-    background-color: transparent; /* Transparent background */
-   
-    
-   
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
 }
 
-
 .reset-btn {
-    color: #003366; 
+  color: #003366;
 }
 
 .delete-btn {
-    color: #ff4d4d; 
+  color: #ff4d4d;
 }
 
-/* Optional: add hover effect */
 .reset-btn:hover,
 .delete-btn:hover {
-    opacity: 0.7; 
+  opacity: 0.7;
 }
 
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
 
+.close:hover {
+  color: black;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons inside Modal */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .bottom-rectangle {
-        flex-direction: column;
-    }
+  .bottom-rectangle {
+    flex-direction: column;
+  }
 
-    .right-rectangle {
-        margin-left: 0;
-        margin-top: 20px;
-    }
+  .right-rectangle {
+    margin-left: 0;
+    margin-top: 20px;
+  }
 
-    .modal-content {
-        width: 80%;
-    }
+  .modal-content {
+    width: 80%;
+  }
 }
